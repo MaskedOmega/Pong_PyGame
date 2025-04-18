@@ -5,14 +5,14 @@ Pong in PyGame.
 Game Controls:
 
 Player 1:  
-W = UP  
-S = DOWN  
+W : UP  
+S : DOWN  
 
 Player 2:  
-UP ARROW = UP  
-DOWN ARROW = DOWN  
+UP ARROW : UP  
+DOWN ARROW " DOWN  
 
-R for Restart once win condition met
+R : Restart once win condition met
 
 
 Game while running:
