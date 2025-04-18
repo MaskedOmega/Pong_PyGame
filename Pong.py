@@ -32,7 +32,6 @@ for i in range(10):
 movement = [-0.1,-0.1]
 
 
-
 X = 400
 Y = 400
 
@@ -40,8 +39,6 @@ white = (255, 255, 255)
 green = (0, 255, 0)
 blue = (0, 0, 128)
 font = pygame.font.Font('freesansbold.ttf', 12)
-
-
 
 
 while True:
@@ -187,8 +184,4 @@ while True:
 
     pygame.draw.circle(chicken,(255,255,255),(ballcordsx,ballcordsy),10)
     pygame.display.update()
-
-
-
-    #pygame.draw.line(chicken,(255,255,131),(250,0),(250,500),5)
 
