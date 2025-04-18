@@ -10,7 +10,7 @@ S : DOWN
 
 Player 2:  
 UP ARROW : UP  
-DOWN ARROW " DOWN  
+DOWN ARROW : DOWN  
 
 R : Restart once win condition met
 
