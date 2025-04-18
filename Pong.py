@@ -195,7 +195,3 @@ while True:
     ball = pygame.draw.circle(chicken,(ballcolor),(ballcordsx,ballcordsy),ballsize)
     pygame.display.update()
 
-
-
-    #pygame.draw.line(chicken,(255,255,131),(250,0),(250,500),5)
-
