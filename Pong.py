@@ -32,6 +32,7 @@ for i in range(10):
 movement = [-0.1,-0.1]
 
 
+
 X = 400
 Y = 400
 
@@ -39,6 +40,9 @@ white = (255, 255, 255)
 green = (0, 255, 0)
 blue = (0, 0, 128)
 font = pygame.font.Font('freesansbold.ttf', 12)
+
+ballcolor = (255, 255, 255)
+ballsize = 10
 
 
 while True:
@@ -107,36 +111,31 @@ while True:
     print("Ball:", int(ballcordsx), int(ballcordsy),"Play:", plyaerx, plyaery)
 
 
-    if ballcordsy <= 10:
-        ballcordsy = 10
-    if ballcordsy >= 500:
-        ballcordsy = 500
-    
-    
-    if ballcordsx <= 10:
-        ballcordsx = 10
-    if ballcordsx >= 500:
-        ballcordsx = 500
+
 
     if ballcordsx <= 10:
         player2Score += 1
         ballcordsx = 250
         ballcordsy = 250
+        movement[0] = random.choice([0.1, -0.1])
+        movement[1] = random.uniform(0.1, -0.1)
 
     if ballcordsx >= 490:
         player1Score += 1
         ballcordsx = 250
         ballcordsy = 250
+        movement[0] = random.choice([0.1, -0.1])
+        movement[1] = random.uniform(0.1, -0.1)
 
     if plyaery <= 0:
         plyaery = 0
-    if plyaery >= 457:
-        plyaery = 457
+    if plyaery >= 455:
+        plyaery = 455
 
     if plyaer2y <= 0:
         plyaer2y = 0
-    if plyaer2y >= 457:
-        plyaer2y = 457
+    if plyaer2y >= 455:
+        plyaer2y = 455
     
     if player2Score == 3:
         print("Player 2 wins")
@@ -144,9 +143,11 @@ while True:
         textRect = text.get_rect()
         textRect.center = (250, 250)
         chicken.blit(text, textRect)
-        ballcordsx = 1000
-        ballcordsy = 1000
+        ballcordsx = 250
+        ballcordsy = 250
         GameEnd = True
+        ballcolor = (0, 0, 0)
+        ballsize = 0
 
     if player1Score == 3: 
         print("Player 1 wins")
@@ -154,9 +155,12 @@ while True:
         textRect = text.get_rect()
         textRect.center = (250, 250)
         chicken.blit(text, textRect)
-        ballcordsx = 1000
-        ballcordsy = 1000
+        ballcordsx = 250
+        ballcordsy = 250
         GameEnd = True
+        ballcolor = (0, 0, 0)
+        ballsize = 0
+
 
     if GameEnd == True:
         text = font.render("Press R to restart", True, white)
@@ -171,17 +175,27 @@ while True:
             GameEnd = False
             ballcordsx = 250
             ballcordsy = 250
+            ballcolor = (255, 255, 255)
+            ballsize = 10
+            
 
-    text = font.render("Player 2", True, white)
+
+
+    text = font.render("Player 2 Score: " + str(player2Score), True, white)
     textRect = text.get_rect()
     textRect.center = (400, 20)
     chicken.blit(text, textRect)
 
-    text = font.render("Player 1", True, white)
+    text = font.render("Player 1 Score: " + str(player1Score), True, white)
     textRect = text.get_rect()
     textRect.center = (100, 20)
     chicken.blit(text, textRect)
 
-    pygame.draw.circle(chicken,(255,255,255),(ballcordsx,ballcordsy),10)
+
+    ball = pygame.draw.circle(chicken,(ballcolor),(ballcordsx,ballcordsy),ballsize)
     pygame.display.update()
+
+
+
+    #pygame.draw.line(chicken,(255,255,131),(250,0),(250,500),5)
 
