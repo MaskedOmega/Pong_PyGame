@@ -3,7 +3,7 @@ import random
 
 pygame.init()
 
-chicken = pygame.display.set_mode((500, 500)) 
+screen = pygame.display.set_mode((500, 500)) 
 cords = 10
 
 cordplayer = 0
@@ -51,19 +51,19 @@ while True:
             pygame.quit()
             exit()
 
-    chicken.fill((0, 0, 0))
+    screen.fill((0, 0, 0))
     cordplayer+= 0.1
 
-    pygame.draw.line(chicken,(200,200,200),(250,linecordstart[0]),(250,linecordend[0]),3)   
-    pygame.draw.line(chicken,(200,200,200),(250,linecordstart[1]),(250,linecordend[1]),3)
-    pygame.draw.line(chicken,(200,200,200),(250,linecordstart[2]),(250,linecordend[2]),3)
-    pygame.draw.line(chicken,(200,200,200),(250,linecordstart[3]),(250,linecordend[3]),3)
-    pygame.draw.line(chicken,(200,200,200),(250,linecordstart[4]),(250,linecordend[4]),3)
-    pygame.draw.line(chicken,(200,200,200),(250,linecordstart[5]),(250,linecordend[5]),3)
-    pygame.draw.line(chicken,(200,200,200),(250,linecordstart[6]),(250,linecordend[6]),3)
-    pygame.draw.line(chicken,(200,200,200),(250,linecordstart[7]),(250,linecordend[7]),3)
-    pygame.draw.line(chicken,(200,200,200),(250,linecordstart[8]),(250,linecordend[8]),3)
-    pygame.draw.line(chicken,(200,200,200),(250,linecordstart[9]),(250,linecordend[9]),3)
+    pygame.draw.line(screen,(200,200,200),(250,linecordstart[0]),(250,linecordend[0]),3)   
+    pygame.draw.line(screen,(200,200,200),(250,linecordstart[1]),(250,linecordend[1]),3)
+    pygame.draw.line(screen,(200,200,200),(250,linecordstart[2]),(250,linecordend[2]),3)
+    pygame.draw.line(screen,(200,200,200),(250,linecordstart[3]),(250,linecordend[3]),3)
+    pygame.draw.line(screen,(200,200,200),(250,linecordstart[4]),(250,linecordend[4]),3)
+    pygame.draw.line(screen,(200,200,200),(250,linecordstart[5]),(250,linecordend[5]),3)
+    pygame.draw.line(screen,(200,200,200),(250,linecordstart[6]),(250,linecordend[6]),3)
+    pygame.draw.line(screen,(200,200,200),(250,linecordstart[7]),(250,linecordend[7]),3)
+    pygame.draw.line(screen,(200,200,200),(250,linecordstart[8]),(250,linecordend[8]),3)
+    pygame.draw.line(screen,(200,200,200),(250,linecordstart[9]),(250,linecordend[9]),3)
 
 
 
@@ -81,8 +81,8 @@ while True:
         plyaer2y += 0.5
 
 
-    pygame.draw.rect(chicken,(255,255,255),(plyaerx-5,plyaery-5,10,50))
-    pygame.draw.rect(chicken,(255,255,255),(plyaer2x-5,plyaer2y-5,10,50))
+    pygame.draw.rect(screen,(255,255,255),(plyaerx-5,plyaery-5,10,50))
+    pygame.draw.rect(screen,(255,255,255),(plyaer2x-5,plyaer2y-5,10,50))
     
     if int(ballcordsy) in range (int(plyaery),int((plyaery+50))):
         print("Ball hit player 1 y")
@@ -142,7 +142,7 @@ while True:
         text = font.render("Player 2 wins", True, white)
         textRect = text.get_rect()
         textRect.center = (250, 250)
-        chicken.blit(text, textRect)
+        screen.blit(text, textRect)
         ballcordsx = 250
         ballcordsy = 250
         GameEnd = True
@@ -154,7 +154,7 @@ while True:
         text = font.render("Player 1 wins", True, white)
         textRect = text.get_rect()
         textRect.center = (250, 250)
-        chicken.blit(text, textRect)
+        screen.blit(text, textRect)
         ballcordsx = 250
         ballcordsy = 250
         GameEnd = True
@@ -166,7 +166,7 @@ while True:
         text = font.render("Press R to restart", True, white)
         textRect = text.get_rect()
         textRect.center = (250, 300)
-        chicken.blit(text, textRect)
+        screen.blit(text, textRect)
 
         keys = pygame.key.get_pressed()
         if keys[pygame.K_r]:
@@ -184,14 +184,14 @@ while True:
     text = font.render("Player 2 Score: " + str(player2Score), True, white)
     textRect = text.get_rect()
     textRect.center = (400, 20)
-    chicken.blit(text, textRect)
+    screen.blit(text, textRect)
 
     text = font.render("Player 1 Score: " + str(player1Score), True, white)
     textRect = text.get_rect()
     textRect.center = (100, 20)
-    chicken.blit(text, textRect)
+    screen.blit(text, textRect)
 
 
-    ball = pygame.draw.circle(chicken,(ballcolor),(ballcordsx,ballcordsy),ballsize)
+    ball = pygame.draw.circle(screen,(ballcolor),(ballcordsx,ballcordsy),ballsize)
     pygame.display.update()
 
